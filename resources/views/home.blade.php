@@ -6,7 +6,7 @@
     <title>Pagina principal</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class=" bg-no-repeat w-full h-full" style="background-image: url(https://cdn.pixabay.com/photo/2016/05/20/21/57/football-1406106_1280.jpg);">
+<body class="bg-no-repeat bg-cover w-full h-full" style="background-image: url(https://cdn.pixabay.com/photo/2016/05/20/21/57/football-1406106_1280.jpg);">
     <div class="flex items-center justify-center h-full">
         <div class="text-center text-white">
             <h1 class="text-4xl font-bold mb-6 mt-8" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);">Administra tu liga de fútbol</h1>
