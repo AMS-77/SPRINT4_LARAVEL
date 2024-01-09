@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
 {
     Schema::create('games', function (Blueprint $table) {
-        $table->id('id_partido');
+        $table->id();
         $table->dateTime('fecha_hora');
         $table->unsignedBigInteger('local_id');
         $table->unsignedBigInteger('visitante_id');
@@ -22,8 +22,8 @@ return new class extends Migration
     });
 
     Schema::table('games', function (Blueprint $table) {
-        $table->foreign('local_id')->references('id_equipo')->on('teams');
-        $table->foreign('visitante_id')->references('id_equipo')->on('teams');
+        $table->foreign('local_id')->references('id')->on('teams');
+        $table->foreign('visitante_id')->references('id')->on('teams');
     });
 }
     /**

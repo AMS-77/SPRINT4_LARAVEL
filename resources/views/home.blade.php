@@ -11,10 +11,10 @@
         <div class="text-center text-white">
             <h1 class="text-4xl font-bold mb-6 mt-8" style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);">Administra tu liga de fútbol</h1>
             <div class="flex flex-col items-center">
-                <a href="{{ route('equipos.index') }}" class="bg-orange-500 text-white font-bold py-3 px-6 rounded mb-4 text-lg w-full">
+                <a href="{{ route('teams.index') }}" class="bg-orange-500 text-white font-bold py-3 px-6 rounded mb-4 text-lg w-full">
                     Gestionar Equipos
                 </a>
-                <a href="{{ route('partidos.index') }}" class="bg-orange-500 text-white font-bold py-3 px-6 rounded text-lg w-full">
+                <a href="{{ route('games.index') }}" class="bg-orange-500 text-white font-bold py-3 px-6 rounded text-lg w-full">
                     Ir a Partidos
                 </a>
             </div>

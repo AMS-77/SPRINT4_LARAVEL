@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIGA-FUTBOL-APP</title>
+    <title>LIGA-FUTBOL-APP - @yield('subtitle')</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
     <div class="bg-black p-4 text-orange-500 text-center">
         <h1 class="text-4xl font-bold">LIGA-FUTBOL-APP</h1>
+        <h2 class="text-2xl">@yield('subtitle')</h2>
     </div>
 
     <div class="container mx-auto my-8">
