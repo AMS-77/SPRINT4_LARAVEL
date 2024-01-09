@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Team;
 use App\Models\Game;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        $games = game::all();
+        return view('games.index', ['games' => $games]);
     }
 
     /**

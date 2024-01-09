@@ -41,7 +41,7 @@ class TeamController extends Controller
         $team->camiseta = $request->input('camiseta');
         $team->save();
 
-        return view("teams.message", ['msg' => "Equipo dado de alta correctamente"]);
+        return view("message", ['msg' => "Equipo dado de alta correctamente"]);
     }
 
     /**
@@ -77,7 +77,7 @@ class TeamController extends Controller
         $team->ciudad = $request->input('ciudad');
         $team->camiseta = $request->input('camiseta');
         $team->save();
-        return view("teams.message", ['msg' => "Registro actualizado correctamente"]);
+        return view("message", ['msg' => "Registro actualizado correctamente"]);
     }
 
     /**
@@ -87,6 +87,6 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
         $team->delete();
-        return view("teams.message", ['msg' => "Registro eliminado correctamente"]);
+        return view("message", ['msg' => "Registro eliminado correctamente"]);
     }
 }

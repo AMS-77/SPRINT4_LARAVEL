@@ -1,10 +1,10 @@
 @extends('template')
 
-@section('subtitle', 'Crear equipo')
+@section('subtitle', 'Crear partido')
 
 @section('content')
 
-<main class="bg-gray-800 h-[350px] flex items-center justify-center">
+<main class ="bg-gray-800 h-[350px] flex items-center justify-center">
     <div class="max-w-md w-full p-6 bg-gray-300 rounded-lg shadow-md">
         @if ($errors->any())
         <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
@@ -23,26 +23,36 @@
         </button>
         </div>
         @endif
-    <form action="{{ url('teams') }}" method="POST" class="mt-4">
+    <form action="{{ url('games') }}" method="POST" class="mt-4">
             @csrf
 
             <div class="mb-4">
-                <label for="nombre"  class="block text-sm font-medium text-gray-600">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="fecha_hora"  class="block text-sm font-medium text-gray-600">Fecha_hora</label>
+                <input type="datatime" id="fecha_hora" name="fecha_hora" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="ciudad" class="block text-sm font-medium text-gray-600">Ciudad</label>
-                <input type="text" id="ciudad" name="ciudad" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="local_id" class="block text-sm font-medium text-gray-600">Local</label>
+                <input type="text" id="local_id" name="local_id" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="camiseta" class="block text-sm font-medium text-gray-600">Descripcion camiseta</label>
-                <input type="text" id="camiseta" name="camiseta" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="visitante_id" class="block text-sm font-medium text-gray-600">Visitante</label>
+                <input type="text" id="visitante_id" name="visitante_id" required class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <div class="mb-4">
+                <label for="n_goles_local" class="block text-sm font-medium text-gray-600">Goles local</label>
+                <input type="int" id="n_goles_local" name="n_goles_local" required class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <div class="mb-4">
+                <label for="n_goles_visitante" class="block text-sm font-medium text-gray-600">Goles visitante</label>
+                <input type="int" id="n_goles_visitante" name="n_goles_visitante" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="flex justify-between">
-                <a href="{{ url('teams') }}" class="text-orange-500 hover:underline">Regresar</a>
+                <a href="{{ url('games') }}" class="text-orange-500 hover:underline">Regresar</a>
                 <button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition">Guardar</button>
             </div>
 
