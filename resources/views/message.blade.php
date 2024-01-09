@@ -1,7 +1,5 @@
 @extends('template')
 
-@section('subtitle', 'Crear equipo')
-
 @section('content')
 <main class="bg-gray-800 h-[300px] flex items-center justify-center">
     <div class="text-center p-6 bg-gray-300 rounded-lg shadow-md flex flex-col justify-between" style="height: 200px;">

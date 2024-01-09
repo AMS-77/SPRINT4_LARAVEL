@@ -9,14 +9,14 @@
         <table class="mt-4 w-full bg-white rounded-lg overflow-hidden">
             <thead class="bg-gray-200">
                 <tr>
-                    <th class="py-4 px-8">#</th>
-                    <th class="py-4 px-8">Nombre</th>
-                    <th class="py-4 px-8">Ciudad</th>
-                    <th class="py-4 px-8">Camiseta</th>
-                    <th class="py-4 px-8">Fecha de Creación</th>
-                    <th class="py-4 px-8">Última Actualización</th>
-                    <th class="py-4 px-8">Acciones</th>
-                    <th class="py-4 px-8">Eliminar</th>
+                    <th class="py-4 px-12">id</th>
+                    <th class="py-4 px-12">Nombre</th>
+                    <th class="py-4 px-12">Ciudad</th>
+                    <th class="py-4 px-12">Camiseta</th>
+                    <th class="py-4 px-12">Fecha de Creación</th>
+                    <th class="py-4 px-12">Última Actualización</th>
+                    <th class="py-4 px-12"></th>
+                    <th class="py-4 px-12"></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,10 +40,11 @@
                 @endforeach
             </tbody>
         </table>
-
+        <a href="{{ url('') }}" class="text-orange-500 hover:underline">Regresar</a>
         <a href="{{ route('teams.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear equipo</a>
+
     </div>
 
-    <a href="{{ url('') }}" class="mt-4 text-orange-500 hover:underline">Regresar</a>
+    
 </main>
 @endsection
