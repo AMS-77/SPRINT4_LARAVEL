@@ -26,8 +26,8 @@
                     <tr>
                         <td>{{ $game->id }}</td>
                         <td>{{ $game->fecha_hora }}</td>
-                        <td>{{ $game->local_id }}</td>
-                        <td>{{ $game->visitante_id }}</td>
+                        <td>{{ $game->local }}</td>
+                        <td>{{ $game->visitante }}</td>
                         <td>{{ $game->n_goles_local }}</td>
                         <td>{{ $game->n_goles_visitante }}</td>
                         <td>{{ $game->created_at }}</td>
@@ -44,8 +44,8 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ url('') }}" class="text-orange-500 hover:underline">Regresar</a>
-        <a href="{{ route('games.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear equipo</a>
+        <a href="{{ url('') }}" class="text-orange-500 hover:underline mr-5">Regresar</a>
+        <a href="{{ route('games.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear emparejamiento</a>
 
     </div>
 
