@@ -40,7 +40,7 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ url('') }}" class="text-orange-500 hover:underline">Regresar</a>
+        <a href="{{ url('') }}" class="text-orange-500 hover:underline mr-5">Regresar</a>
         <a href="{{ route('teams.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear equipo</a>
 
     </div>

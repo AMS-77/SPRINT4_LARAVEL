@@ -30,27 +30,35 @@
 
             <div class="mb-4">
                 <label for="fecha_hora" class="block text-sm font-medium text-gray-600">Fecha_hora</label>
-                <input type="datatime" id="fecha_hora" name="fecha_hora" value="{{ $game->fecha_hora }}" required class="mt-1 p-2 w-full border rounded-md">
+                <input type="datetime" id="fecha_hora" name="fecha_hora" value="{{ $game->fecha_hora }}" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="local_id" class="block text-sm font-medium text-gray-600">Local</label>
-                <input type="text" id="local_id" name="local_id" value="{{ $game->local_id }}" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="local" class="block text-sm font-medium text-gray-600">Local</label>
+                <select name="local" required class="mt-1 p-2 w-full border rounded-md">
+                    @foreach($teams as $team)
+                        <option value="{{ $team->nombre }}" @if($team->nombre == $game->local) selected @endif>{{ $team->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-4">
-                <label for="visitante_id" class="block text-sm font-medium text-gray-600">Visitante</label>
-                <input type="text" id="visitante_id" name="visitante_id" value="{{ $game->visitante_id }}" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="visitante" class="block text-sm font-medium text-gray-600">Visitante</label>
+                <select name="visitante" required class="mt-1 p-2 w-full border rounded-md">
+                    @foreach($teams as $team)
+                        <option value="{{ $team->nombre }}" @if($team->nombre == $game->visitante) selected @endif>{{ $team->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-4">
-                <label for="n_goles_local" class="block text-sm font-medium text-gray-600">goles local</label>
-                <input type="int" id="n_goles_local" name="n_goles_local" value="{{ $game->n_goles_local }}" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="n_goles_local" class="block text-sm font-medium text-gray-600">Goles local</label>
+                <input type="number" id="n_goles_local" name="n_goles_local" value="{{ $game->n_goles_local }}" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="n_goles_visitante" class="block text-sm font-medium text-gray-600">goles visitante</label>
-                <input type="int" id="n_goles_visitante" name="n_goles_visitante" value="{{ $game->n_goles_visitante }}" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="n_goles_visitante" class="block text-sm font-medium text-gray-600">Goles visitante</label>
+                <input type="number" id="n_goles_visitante" name="n_goles_visitante" value="{{ $game->n_goles_visitante }}" required class="mt-1 p-2 w-full border rounded-md">
             </div>
 
             <div class="flex justify-between">

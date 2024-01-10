@@ -27,18 +27,27 @@
             @csrf
 
             <div class="mb-4">
-                <label for="fecha_hora"  class="block text-sm font-medium text-gray-600">Fecha_hora</label>
-                <input type="datatime" id="fecha_hora" name="fecha_hora" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="fecha_hora" class="block text-sm font-medium text-gray-600">Fecha y Hora</label>
+                <input type="text" id="fecha_hora" name="fecha_hora" required class="mt-1 p-2 w-full border rounded-md">
+                <p class="text-sm text-gray-500">Formato: YYYY-MM-DDTHH:MM (Ejemplo: 2022-01-09T14:30)</p>
             </div>
 
             <div class="mb-4">
-                <label for="local_id" class="block text-sm font-medium text-gray-600">Local</label>
-                <input type="text" id="local_id" name="local_id" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="local" class="block text-sm font-medium text-gray-600">Local</label>
+                <select name="local" required class="mt-1 p-2 w-full border rounded-md">
+                    @foreach($teams as $team)
+                        <option value="{{ $team->nombre }}">{{ $team->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-4">
-                <label for="visitante_id" class="block text-sm font-medium text-gray-600">Visitante</label>
-                <input type="text" id="visitante_id" name="visitante_id" required class="mt-1 p-2 w-full border rounded-md">
+                <label for="visitante" class="block text-sm font-medium text-gray-600">Visitante</label>
+                <select name="visitante" required class="mt-1 p-2 w-full border rounded-md">
+                    @foreach($teams as $team)
+                        <option value="{{ $team->nombre }}">{{ $team->nombre }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-4">

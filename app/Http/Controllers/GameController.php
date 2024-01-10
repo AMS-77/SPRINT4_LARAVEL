@@ -12,7 +12,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = game::all();
+        $games = Game::all();
         return view('games.index', ['games' => $games]);
     }
 
@@ -21,7 +21,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        $teams = team::all();
+        return view('games.create', ['teams' => $teams]);
     }
 
     /**
@@ -29,7 +30,23 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fecha_hora' => 'required|date|date_format:Y-m-d\TH:i',
+            'local' => 'required|exists:teams,nombre|different:visitante',
+            'visitante' => 'required|exists:teams,nombre|different:local',
+            'n_goles_local' => 'nullable|integer|min:0',
+            'n_goles_visitante' => 'nullable|integer|min:0'
+        ]);
+
+        $game = new Game();
+        $game->fecha_hora = $request->input('fecha_hora');
+        $game->local = $request->input('local');
+        $game->visitante = $request->input('visitante');
+        $game->n_goles_local = $request->input('n_goles_local');
+        $game->n_goles_visitante = $request->input('n_goles_visitante');
+        $game->save();
+
+        return view("message", ['msg' => "Emparejamiento dado de alta correctamente"]);
     }
 
     /**
@@ -43,24 +60,44 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $game)
+    public function edit($id)
     {
-        //
+        $game = Game::find($id);
+        $teams = Team::all();
+        return view('games.edit', ['game' => $game, 'teams' => $teams]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Game $game)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'fecha_hora' => 'required|date|date_format:Y-m-d\TH:i',
+            'local' => 'required|exists:teams,nombre|different:visitante',
+            'visitante' => 'required|exists:teams,nombre|different:local',
+            'n_goles_local' => 'nullable|integer|min:0',
+            'n_goles_visitante' => 'nullable|integer|min:0'
+        ]);
+
+        $game = Game::find($id);
+        $game->fecha_hora = $request->input('fecha_hora');
+        $game->local = $request->input('local');
+        $game->visitante = $request->input('visitante');
+        $game->n_goles_local = $request->input('n_goles_local');
+        $game->n_goles_visitante = $request->input('n_goles_visitante');
+        $game->save();
+
+        return view("message", ['msg' => "Emparejamiento actualizado correctamente"]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $game)
+    public function destroy($id)
     {
-        //
+        $game = Game::find($id);
+        $game->delete();
+        return view("message", ['msg' => "Partido eliminado correctamente"]);
     }
 }
