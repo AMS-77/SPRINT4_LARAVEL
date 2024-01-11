@@ -5,13 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    // Relación 1:n con partidos como local
+    // Relationship 1:n with local games 
     public function localGames()
     {
         return $this->hasMany(Game::class, 'local', 'id');
     }
 
-    // Relación 1:n con partidos como visitante
+    // Relationship 1:n with visiting games
     public function visitingGames()
     {
         return $this->hasMany(Game::class, 'visitante', 'id');

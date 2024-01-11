@@ -15,10 +15,8 @@
                     <th class="py-4 px-12">Visitante</th>
                     <th class="py-4 px-12">goles local</th>
                     <th class="py-4 px-12">goles visitante</th>
-                    <th class="py-4 px-12">Fecha Creación</th>
-                    <th class="py-4 px-12">Última Actualización</th>
-                    <th class="py-4 px-12"></th>
-                    <th class="py-4 px-12"></th>
+                    <th class="py-4 px-12"> </th>
+                    <th class="py-4 px-12"> </th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +28,6 @@
                         <td>{{ $game->visitante }}</td>
                         <td>{{ $game->n_goles_local }}</td>
                         <td>{{ $game->n_goles_visitante }}</td>
-                        <td>{{ $game->created_at }}</td>
-                        <td>{{ $game->updated_at }}</td>
                         <td><a href="{{url('games/'.$game->id.'/edit')}}" class="text-blue-500 hover:underline">Editar</a></td>
                         <td>
                             <form action="{{url('games/'.$game->id)}}" method="POST">
@@ -45,7 +41,7 @@
             </tbody>
         </table>
         <a href="{{ url('') }}" class="text-orange-500 hover:underline mr-5">Regresar</a>
-        <a href="{{ route('games.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear emparejamiento</a>
+        <a href="{{ route('games.create') }}" class="bg-orange-500 text-white px-4 py-2 rounded-full mt-4 inline-block hover:bg-green-700 transition">Crear partido</a>
 
     </div>
 
