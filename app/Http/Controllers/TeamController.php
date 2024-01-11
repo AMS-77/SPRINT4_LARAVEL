@@ -12,7 +12,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = team::all();
+        $teams = Team::all();
         return view('teams.index', ['teams' => $teams]);
     }
 
@@ -47,9 +47,8 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
-    {
-       
+    public function show(){ 
+        //It has no use in this App
     }
 
     /**

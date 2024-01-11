@@ -21,7 +21,8 @@ class GameController extends Controller
      */
     public function create()
     {
-        $teams = team::all();
+        //We need the teams to appear in the Select of the form for the Local and Visitor fields.
+        $teams = team::all(); 
         return view('games.create', ['teams' => $teams]);
     }
 
@@ -46,7 +47,7 @@ class GameController extends Controller
         $game->n_goles_visitante = $request->input('n_goles_visitante');
         $game->save();
 
-        return view("message", ['msg' => "Emparejamiento dado de alta correctamente"]);
+        return view("message", ['msg' => "Partido dado de alta correctamente"]);
     }
 
     /**
@@ -54,7 +55,7 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        //
+        //It has no use in this App
     }
 
     /**
@@ -64,6 +65,10 @@ class GameController extends Controller
     {
         $game = Game::find($id);
         $teams = Team::all();
+
+        // Formats the date to the expected format and can pass validation (Y-m-d\TH:i)
+        $game->fecha_hora = date('Y-m-d\TH:i', strtotime($game->fecha_hora));
+
         return view('games.edit', ['game' => $game, 'teams' => $teams]);
     }
 
@@ -88,7 +93,7 @@ class GameController extends Controller
         $game->n_goles_visitante = $request->input('n_goles_visitante');
         $game->save();
 
-        return view("message", ['msg' => "Emparejamiento actualizado correctamente"]);
+        return view("message", ['msg' => "Partido actualizado correctamente"]);
     }
 
     /**
@@ -98,6 +103,7 @@ class GameController extends Controller
     {
         $game = Game::find($id);
         $game->delete();
+        
         return view("message", ['msg' => "Partido eliminado correctamente"]);
     }
 }

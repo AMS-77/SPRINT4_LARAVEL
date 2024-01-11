@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-    //Relación n:1 siendo el equipo local
+    //Relationship n:1 of local team
     public function localTeam()
     {
-        return $this->belongsTo(Team::class, 'local' , 'nombre');
+        return $this->belongsTo(Team::class, 'local', 'nombre');
     }
 
-    //Relación n:1 siendo el equipo visitante
+    //Relationship n:1 of visiting team
     public function visitingTeam()
     {
         return $this->belongsTo(Team::class, 'visitante', 'nombre');
